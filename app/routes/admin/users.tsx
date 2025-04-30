@@ -1,9 +1,21 @@
+import {Header} from "../../../components";
 
 const AllUsers = () => {
 
+  const user = {name: "Mafuz"}
+
     return (
   
-      <div>AllUsers page</div>
+      <main className="dashboard wrapper">
+      <Header
+          title= "All users Page"
+           
+          description="Check out activities for efficiency"
+      />
+   
+      Users Page Contents
+
+  </main>
     )
   }
   

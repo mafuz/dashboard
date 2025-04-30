@@ -1,5 +1,7 @@
 // import type { AxisModel } from "@syncfusion/ej2-react-charts";
 
+import { formatDate } from "lib/utils";
+
 export const sidebarItems = [
   {
     id: 1,
@@ -11,7 +13,7 @@ export const sidebarItems = [
     id: 3,
     icon: "/assets/icons/users.svg",
     label: "All Users",
-    href: "/all-users",
+    href: "/users",
   },
   {
     id: 4,
@@ -140,3 +142,86 @@ export const RIGHT_CONFETTI = {
   angle: 135,
   origin: { x: 1, y: 1 },
 };
+
+
+
+export const user = {name: "Mafuz"}
+
+export const dashboardStats = {
+
+totalUsers: 12150,
+userJoined: {currentMonth: 324, lastMonth: 215},
+totalTrips: 3124,
+tripsCreated: {currentMonth: 150, lastMonth: 250},
+userRole: {total: 62, currentMonth: 24, lastMonth: 16}
+
+}
+
+
+export const allTrips = [{
+  id: 1,
+  name: "Engagement Trip",
+  imageUrls: ["/assets/images/sample1.jpg"],
+  itinerary: [{ location: "Thailand" }],
+  tags: ["Ceremonial", "Culture"],
+  travelStyle: "Solo",
+  estimatedPrice: "₵10,000",
+},
+{
+  id: 2,
+  name: "Wedding Event",
+  imageUrls: ["/assets/images/sample2.jpg"],
+  itinerary: [{ location: "Kwahu" }],
+  tags: ["Relaxation", "Culture"],
+  travelStyle: "Family",
+  estimatedPrice: "₵12,000",
+},
+{
+  id: 3,
+  name: "Zen Break",
+  imageUrls: ["/assets/images/sample3.jpg"],
+  itinerary: [{ location: "Tamale" }],
+  tags: ["Shopping", "Luxury"],
+  travelStyle: "Couple",
+  estimatedPrice: "₵3,000",
+},
+{
+  id: 4,
+  name: "Birthday in Westeros",
+  imageUrls: ["/assets/images/sample4.jpg"],
+  itinerary: [{ location: "Kintampo" }],
+  tags: ["Historical", "Adventure"],
+  travelStyle: "Friends",
+  estimatedPrice: "₵4,000",
+},
+];
+
+export const users = [
+  {
+    id: 1,
+    name: "John Doe",
+    email: "john.doe@example.com",
+    imageUrl: "/assets/images/david.webp",
+    dateJoined: formatDate("2025-01-01"),
+    itineraryCreated: 10,
+    status: "user",
+  },
+  {
+    id: 2,
+    name: "Jane Smith",
+    email: "jane.smith@example.com",
+    imageUrl: "/assets/images/david.webp",
+    dateJoined: formatDate("2025-01-02"),
+    itineraryCreated: 4,
+    status: "user",
+  },
+  {
+    id: 3,
+    name: "John Smith",
+    email: "john.smith@example.com",
+    imageUrl: "/assets/images/david.webp",
+    dateJoined: formatDate("2025-01-03"),
+    itineraryCreated: 8,
+    status: "admin",
+  },
+];
