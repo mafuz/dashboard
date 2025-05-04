@@ -9,9 +9,7 @@ export const appwriteConfig = {
     eventCollectionId: import.meta.env.VITE_APPWRITE_EVENTS_COLLECTION_ID,
 }
 
-const client = new Client()
-    .setEndpoint(appwriteConfig.endpointUrl)
-    .setProject(appwriteConfig.projectId)
+const client = new Client().setEndpoint(appwriteConfig.endpointUrl).setProject(appwriteConfig.projectId)
 
 const account = new Account(client);
 const database = new Databases(client);

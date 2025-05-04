@@ -18,8 +18,8 @@ export const sidebarItems = [
   {
     id: 4,
     icon: "/assets/icons/itinerary.svg",
-    label: "AI Trips",
-    href: "/trips",
+    label: "AIl Events",
+    href: "/events",
   },
 ];
 
@@ -63,12 +63,13 @@ export const chartOneData: object[] = [
 ];
 
 export const travelStyles = [
-  "Relaxed",
-  "Luxury",
-  "Adventure",
-  "Cultural",
-  "Nature & Outdoors",
-  "City Exploration",
+  "Weddings",
+  "Ceremonies",
+  "Conferences",
+  "Events",
+  "Launches",
+  "Trade shows",
+  "Festivals",
 ];
 
 export const interests = [
@@ -91,17 +92,17 @@ export const footers = ["Terms & Condition", "Privacy Policy"];
 
 export const selectItems = [
   "groupType",
-  "travelStyle",
+  "eventStyle",
   "interest",
   "budget",
 ] as (keyof TripFormData)[];
 
 export const comboBoxItems = {
   groupType: groupTypes,
-  travelStyle: travelStyles,
+  eventStyle: travelStyles,
   interest: interests,
   budget: budgetOptions,
-} as Record<keyof TripFormData, string[]>;
+} as unknown as Record<keyof TripFormData, string[]>;
 
 // export const userXAxis: AxisModel = { valueType: "Category", title: "Day" };
 // export const useryAxis: AxisModel = {
