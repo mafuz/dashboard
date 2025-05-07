@@ -22,37 +22,46 @@ export const loader = async () => {
     }))
 }
 
+
+
+
 const CreateEvent = ({ loaderData }: Route.ComponentProps ) => {
     const countries = loaderData as Country[];
     const navigate = useNavigate();
 
-    const [formData, setFormData] = useState<TripFormData>({
+    const [formData, setFormData] = useState<EventFormData>({
         country: countries[0]?.name || '',
+        duration: 0,
+        groupType: '',
         travelStyle: '',
         interest: '',
         budget: '',
-        duration: 0,
-        groupType: ''
+        
+        
     });
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
-// console.log("hellooo " + formData)
+    const res = Object.values(formData);
+ console.log("hellooo " +res);
+ console.log("hellooo " +JSON.stringify({
+     country: formData.travelStyle}));
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
        e.preventDefault()
         setLoading(true);
-     
+        
 
-    //    if(
-    //        !formData.country ||
-    //        !formData.travelStyle ||
-    //        !formData.interest ||
-    //        !formData.budget ||
-    //        !formData.groupType
-    //    ) {
-    //        setError('Please provide values for all fields');
-    //        setLoading(false)
-    //        return;
-    //    }
+       if(JSON.stringify(
+           !formData.country ||
+           !formData.travelStyle ||
+           !formData.interest ||
+           !formData.budget ||
+           !formData.groupType)
+       ) {
+           setError('Please provide values for all fields');
+           setLoading(false)
+           return;
+       }
 
        if(formData.duration < 1 || formData.duration > 10) {
            setError('Duration must be between 1 and 10 days');
@@ -92,7 +101,7 @@ const CreateEvent = ({ loaderData }: Route.ComponentProps ) => {
        }
     };
 
-    const handleChange = (key: keyof TripFormData, value: string | number)  => {
+    const handleChange = (key: keyof EventFormData, value: string | number)  => {
     setFormData({ ...formData, [key]: value})
     }
     const countryData = countries.map((country) => ({

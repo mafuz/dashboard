@@ -29,13 +29,17 @@ export function parseMarkdownToJson(markdownText: string): unknown | null {
 export function parseEventData(jsonString: string): Event | null {
     try {
         const data: Event = JSON.parse(jsonString);
-
+       
         return data;
+        
     } catch (error) {
         console.error("Failed to parse event data:", error);
         return null;
     }
 }
+
+
+
 
 export function getFirstWord(input: string = ""): string {
     return input.trim().split(/\s+/)[0] || "";

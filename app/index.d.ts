@@ -55,6 +55,25 @@ declare interface Location {
   openStreetMap: string;
 }
 
+declare interface Event {
+  id: string;
+  name: string;
+  description: string;
+  estimatedPrice: string;
+  duration: number;
+  budget: string;
+  travelStyle: string;
+  interests: string;
+  groupType: string;
+  country: string;
+  imageUrls: string[];
+  itinerary: DayPlan[];
+  bestTimeToVisit: string[];
+  weatherInfo: string[];
+  location: Location;
+  payment_link: string;
+}
+
 declare interface Trip {
   id: string;
   name: string;
@@ -75,6 +94,15 @@ declare interface Trip {
 }
 
 declare interface TripCardProps {
+  id: string;
+  name: string;
+  location: string;
+  imageUrl: string;
+  tags: string[];
+  price: string;
+}
+
+declare interface EventCardProps {
   id: string;
   name: string;
   location: string;
@@ -106,14 +134,18 @@ declare interface DashboardStats {
     currentMonth: number;
     lastMonth: number;
   };
-  totalTrips: number;
-  tripsCreated: {
+  totalEvents: number;
+  eventsCreated: {
     currentMonth: number;
     lastMonth: number;
   };
 }
 
 declare interface CreateTripResponse {
+  id?: string;
+}
+
+declare interface CreateEventResponse {
   id?: string;
 }
 
@@ -131,6 +163,11 @@ type GetAllTripsResponse = {
   total: number;
 };
 
+type GetAllEventsResponse = {
+  allTrips: Models.Document[];
+  total: number;
+};
+
 declare interface UsersItineraryCount {
   imageUrl: string;
   name: string;
@@ -142,11 +179,26 @@ declare interface TripsInterest {
   name: string;
   interest: string;
 }
+declare interface EventsInterest {
+  imageUrl: string;
+  name: string;
+  interest: string;
+}
 
 declare interface InfoPillProps {
   text: string;
   image: string;
 }
+
+declare interface EventFormData {
+  country: string;
+  travelStyle: string;
+  interest: string;
+  budget: string;
+  duration: number;
+  groupType: string;
+}
+
 
 declare interface TripFormData {
   country: string;

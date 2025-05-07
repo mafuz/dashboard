@@ -1,4 +1,4 @@
-// import type { AxisModel } from "@syncfusion/ej2-react-charts";
+import type { AxisModel } from "@syncfusion/ej2-react-charts";
 
 import { formatDate } from "lib/utils";
 
@@ -92,38 +92,38 @@ export const footers = ["Terms & Condition", "Privacy Policy"];
 
 export const selectItems = [
   "groupType",
-  "eventStyle",
+  "travelStyle",
   "interest",
   "budget",
-] as (keyof TripFormData)[];
+] as (keyof EventFormData)[];
 
 export const comboBoxItems = {
   groupType: groupTypes,
-  eventStyle: travelStyles,
+  travelStyle: travelStyles,
   interest: interests,
   budget: budgetOptions,
-} as unknown as Record<keyof TripFormData, string[]>;
+} as unknown as Record<keyof EventFormData, string[]>;
 
-// export const userXAxis: AxisModel = { valueType: "Category", title: "Day" };
-// export const useryAxis: AxisModel = {
-//   minimum: 0,
-//   maximum: 10,
-//   interval: 2,
-//   title: "Count",
-// };
+ export const userXAxis: AxisModel = { valueType: "Category", title: "Day" };
+export const useryAxis: AxisModel = {
+  minimum: 0,
+  maximum: 10,
+  interval: 2,
+  title: "Count",
+};
 
-// export const tripXAxis: AxisModel = {
-//   valueType: "Category",
-//   title: "Travel Styles",
-//   majorGridLines: { width: 0 },
-// };
+export const eventXAxis: AxisModel = {
+  valueType: "Category",
+  title: "Travel Styles",
+  majorGridLines: { width: 0 },
+};
 
-// export const tripyAxis: AxisModel = {
-//   minimum: 0,
-//   maximum: 10,
-//   interval: 2,
-//   title: "Count",
-// };
+export const eventyAxis: AxisModel = {
+  minimum: 0,
+  maximum: 10,
+  interval: 2,
+  title: "Count",
+};
 
 export const CONFETTI_SETTINGS = {
   particleCount: 200, // Number of confetti pieces

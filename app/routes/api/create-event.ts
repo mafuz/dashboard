@@ -19,16 +19,16 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     const unsplashApiKey = process.env.UNSPLASH_ACCESS_KEY!;
 
     try {
-        const prompt = `Generate a ${numberOfDays}-day travel itinerary for ${country} based on the following user information:
+        const prompt = `Generate a ${numberOfDays}-day event itinerary for ${country} based on the following user information:
         Budget: '${budget}'
         Interests: '${interests}'
         TravelStyle: '${travelStyle}'
         GroupType: '${groupType}'
         Return the itinerary and lowest estimated price in a clean, non-markdown JSON format with the following structure:
         {
-        "name": "A descriptive title for the trip",
-        "description": "A brief description of the trip and its highlights not exceeding 100 words",
-        "estimatedPrice": "Lowest average price for the trip in Ghana cedi, e.g.₵price",
+        "name": "A descriptive title for the event",
+        "description": "A brief description of the event and its highlights not exceeding 100 words",
+        "estimatedPrice": "Lowest average price for the event in Ghana cedi, e.g.₵price",
         "duration": ${numberOfDays},
         "budget": "${budget}",
         "travelStyle": "${travelStyle}",
@@ -59,7 +59,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
           "activities": [
             {"time": "Morning", "description": "🏰 Visit the local historic castle and enjoy a scenic walk"},
             {"time": "Afternoon", "description": "🖼️ Explore a famous art museum with a guided tour"},
-            {"time": "Evening", "description": "🍷 Dine at a rooftop restaurant with local wine"}
+            {"time": "Evening", "description": "🍷 Dine at a rooftop restaurant with local bar"}
           ]
         },
         ...
@@ -92,7 +92,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
         )
 
         // const eventDetail = parseEventData(result.eventDetails) as Event;
-        // const eventPrice = parseInt(eventDetail.estimatedPrice.replace('$', ''), 10)
+        // const eventPrice = parseInt(eventDetail.estimatedPrice.replace('₵', ''), 10)
         // const paymentLink = await createProduct(
         //      eventDetail.name,
         //      eventDetail.description,
@@ -112,6 +112,6 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 
         return data({ id: result.$id })
     } catch (e) {
-        console.error('Error generating travel plan: ', e);
+        console.error('Error generating event plan: ', e);
     }
 }
